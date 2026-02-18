@@ -23,57 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Custom Cursor
-    const cursorDot = document.querySelector('.cursor-dot');
-    const cursorOutline = document.querySelector('.cursor-dot-outline');
-
-    // Variables for smoothing
-    let mouseX = 0, mouseY = 0;
-    let outlineX = 0, outlineY = 0;
-
-    window.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-
-        if (cursorDot) {
-            cursorDot.style.left = `${mouseX}px`;
-            cursorDot.style.top = `${mouseY}px`;
-        }
-    });
-
-    const animateCursor = () => {
-        if (cursorOutline) {
-            // Smooth follow effect
-            outlineX += (mouseX - outlineX) * 0.15;
-            outlineY += (mouseY - outlineY) * 0.15;
-
-            cursorOutline.style.left = `${outlineX}px`;
-            cursorOutline.style.top = `${outlineY}px`;
-
-            requestAnimationFrame(animateCursor);
-        }
-    };
-
-    // Start animation loop
-    animateCursor();
-
-    // Make interactive elements trigger cursor growth
-    const interactiveElements = document.querySelectorAll('a, button, .card');
-    interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursorOutline.style.width = '50px';
-            cursorOutline.style.height = '50px';
-            cursorOutline.style.backgroundColor = 'rgba(255, 255, 255, 0.03)';
-            cursorOutline.style.borderColor = 'transparent';
-        });
-        el.addEventListener('mouseleave', () => {
-            cursorOutline.style.width = '30px';
-            cursorOutline.style.height = '30px';
-            cursorOutline.style.backgroundColor = 'transparent';
-            cursorOutline.style.borderColor = 'rgba(255, 255, 255, 0.5)';
-        });
-    });
-
     // Fade Up Animation on Scroll
     const observerOptions = {
         root: null,

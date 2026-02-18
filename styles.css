@@ -29,39 +29,7 @@ body {
     cursor: default;
 }
 
-/* Custom Cursor */
-.cursor-dot,
-.cursor-dot-outline {
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    z-index: 9999;
-    pointer-events: none;
-}
 
-.cursor-dot {
-    width: 5px;
-    height: 5px;
-    background-color: var(--text-main);
-}
-
-.cursor-dot-outline {
-    width: 30px;
-    height: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    transition: width 0.2s, height 0.2s, background-color 0.2s;
-    /* Performance optimized */
-    will-change: width, height, transform, top, left;
-}
-
-body:hover .cursor-dot-outline {
-    width: 50px;
-    height: 50px;
-    background-color: rgba(255, 255, 255, 0.03);
-    border-color: transparent;
-}
 
 /* Scroll Animation State */
 .visible {
@@ -171,16 +139,17 @@ body:hover .cursor-dot-outline {
     display: inline-block;
     position: relative;
     padding: 1rem 2.5rem;
-    background: transparent;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
     color: var(--text-main);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     overflow: hidden;
-    transition: all 0.4s ease;
-    border-radius: 2px;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .cta-button::before {
